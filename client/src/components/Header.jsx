@@ -18,7 +18,7 @@ export default function Header() {
             <ul className='flex gap-4 hover:cursor-pointer'>
                 <Link to='/' className='hidden sm:inline hover:underline'><li>Home</li></Link>
                 <Link to='/about' className='hover:underline'><li>About</li></Link>
-                <Link to='/sign-in' className='hover:underline'>
+                <Link to='/profile' className='hover:underline'>
                     {currentUser ? (
                         <img 
                             src={currentUser.user.avatar} 

@@ -27,7 +27,6 @@ const OAuth = () => {
       });
       const data = await res.json();
       dispatch(signInSuccess(data));
-      console.log(data)
       navigate('/');
     } catch (error) {
       console.log( "Error while signing in with google : ",error);
