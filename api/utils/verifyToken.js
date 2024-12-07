@@ -8,7 +8,7 @@ export const verifyToken = async (req, res, next) => {
 
     try {
         const user = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = user; 
+        req.user = user;
         next();
     } catch (err) {
         return next(errorHandler(403, "Forbidden"));

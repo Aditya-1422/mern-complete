@@ -35,7 +35,19 @@ export const userUpdate = async (req, res, next) => {
             message: "User updated successfully",
             user: rest
         });
-    } catch (err) {
-        next(errorHandler(500, "Internal Server Error"));
+    } catch (error) {
+        next(error);
     }
 };
+
+export const deleteUser = async (req, res, next) => {
+    try {
+        if (req.user.id !== req.params.id) {
+            return next(errorHandler(401, "You can only delete your own data!"));
+        }
+         await User.findByIdAndDelete(req.params.id)
+         res.status(200).json("User has been successfully deleted!!!")
+    } catch (error) {
+        next(error)
+    }
+}
